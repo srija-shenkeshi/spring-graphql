@@ -1,0 +1,53 @@
+# Represents a student entity with basic details
+type Student {
+    # Unique identifier for each student
+    id: ID!
+    name: String
+    rollNo: String
+    grade: String
+    section: String
+    percentage: Int
+}
+
+# Input type for creating a new student
+input StudentInput {
+    "Name is required for new student creation"
+    name: String!
+    "Roll number is required and should be unique"
+    rollNo: String!
+    grade: String
+    section: String
+    percentage: Int
+}
+
+# Input type for updating an existing student
+input UpdateStudentInput {
+    "ID is required for updating an existing student"
+    id: ID!
+    name: String
+    rollNo: String
+    grade: String
+    section: String
+    percentage: Int
+}
+
+# Query operations to retrieve student data
+type Query {
+    "Retrieve a specific student from the database using roll number"
+    getStudent(rollNo: String): Student
+
+    "Retrieve all students from the database"
+    getAllStudents: [Student]
+}
+
+# Mutation operations to modify student data
+type Mutation {
+    "Add a new student to the database"
+    addStudentToDB(student: StudentInput): Student
+
+    "Update an existing student's details in the database"
+    updateStudent(student: UpdateStudentInput): Student
+
+    "Delete a student from the database using roll number"
+    deleteStudent(rollNo: String): Boolean
+}
