@@ -1,4 +1,4 @@
-# Student Microservice
+# Student Microservice using GraphQL
 
 ## Overview
 This project is a **Spring Boot** application that provides a GraphQL API for managing student records. It supports creating, retrieving, updating, and deleting student information with robust exception handling and logging using **Spring AOP**.
